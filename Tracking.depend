@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1368530263 source:c:\users\yunni\documents\programmierung\tracking\main.cpp
+	<iomanip>
+	<iostream>
+	<windows.h>
+	<cmath>
+
