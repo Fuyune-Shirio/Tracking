@@ -45,7 +45,7 @@ int main()
 cout << setfill('#') << setw(52)<< "" << endl;
 cout << setfill('#') << setw(1) << "" << "  Author: Daniele Wohlgezogen aka. Fuyune Shirio  " << setfill('#') << setw(1) <<"" << endl;
 cout << setfill('#') << setw(1) << "" << "  Contact: Fuyune@live.de or E.V.E Ingame mail    " << setfill('#') << setw (1) << "" << endl;
-cout << setfill('#') << setw(1) << "" << "  Programm version 0.0.1                          " << setfill('#') << setw(1) << "" << endl;
+cout << setfill('#') << setw(1) << "" << "  Programm version 0.0.2                          " << setfill('#') << setw(1) << "" << endl;
 cout << setfill('#') << setw(52)<< "" << endl;
 cout << endl;
 
@@ -55,6 +55,7 @@ cout << endl;
     cout << "Please choose your operation!" << endl;
     cout << "1: Turret Tracking\n";
     cout << "2: Missiles Damage\n";
+    cout << "3: Effective Refining Yield\n";
     cin >> sel;
     switch(sel)
     {
@@ -105,11 +106,30 @@ cout << endl;
             cout << "Average missiles damage: " << damage << endl;
             break;
 
+        case 3:
+            double Effective_Refining_Yield,Station_Equipment_Yield,Refining_Skill_Level,Refining_Efficiency_Skill_Level,Ore_Specific_Processing_Skill_Level,base_yield,take;
+            cout << "please enter Station Equipment base Yield :";
+            cin >> base_yield;
+            cout <<"please enter the tax: ";
+            cin >> take;
+            cout << "please enter Refining Skill Level; ";
+            cin >> Refining_Skill_Level;
+            cout << "please enter Refining Efficiency Skill Level: ";
+            cin >> Refining_Efficiency_Skill_Level;
+            cout << "please enter Ore_Specific Processing Skill Level: ";
+            cin >> Ore_Specific_Processing_Skill_Level;
+            cout << endl;
+            Station_Equipment_Yield=(base_yield/100)-(take/100);
+            Effective_Refining_Yield = min(Station_Equipment_Yield + (0.375 * (1 + (Refining_Skill_Level * 0.02)) * (1 + (Refining_Efficiency_Skill_Level * 0.04)) * (1 + (Ore_Specific_Processing_Skill_Level * 0.05))), 1.00);
+            cout << Effective_Refining_Yield*100 << "%";
+            cout << endl << endl;
+            break;
+
         default:
             cout << "wrong input!\n";
         }
 
-    cout << "do you want to continue? (y/n)";
+    cout << "do you want to continue? (y/n): ";
     cin >> ex;
     system("cls");
     }
